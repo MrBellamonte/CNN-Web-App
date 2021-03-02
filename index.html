@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="module">
+    import { html, render } from 'lit-html';
+    import './convolution2d-layer/dist/convolution2d-layer.js';
+
+
+    let stride = 3
+    render(
+        html`
+        <convolution2d-layer .featureMap=${{'width':64,'height':64,'channels':3}} .stride="${stride}" @new-feature-map-calculated="${ (e) => console.log(e.detail.message)}">
+          some more light-dom
+        </convolution2d-layer>
+      `,
+        document.querySelector('#demo')
+    );
+</script>
+</body>
+</html>
